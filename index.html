@@ -55,7 +55,7 @@
         .logo-perfil {
             width: 120px;
             height: 120px;
-            background: #fff;
+            background: #fff0f3;
             border-radius: 50%;
             position: absolute;
             bottom: -60px;
@@ -72,6 +72,12 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .logo-perfil .fallback-avatar {
+            font-size: 40px;
+            color: var(--rosa-principal);
+            font-weight: bold;
         }
 
         .boas-vindas {
@@ -243,9 +249,9 @@
 
 <div class="container">
     <div class="header-banner">
-        <div class="logo-perfil">
-            <!-- Puxando o nome exato da imagem identificada no seu print -->
-            <img src="./foto-perfil.jpg.jpg" alt="Foto de Perfil" onerror="this.src='./foto-perfil.jpg'">
+        <div class="logo-perfil" id="container-perfil">
+            <!-- Começa tentando ler o arquivo atual do seu print -->
+            <img id="avatar-foto" src="foto-perfil.jpg.jpg" alt="Foto de Perfil" onerror="tentarOutrosNomes(this)">
         </div>
     </div>
 
@@ -292,9 +298,3 @@
             <ul>
                 <li>Tolerância máxima de 10 minutos de atraso.</li>
                 <li>Venha de olhos limpos e sem maquiagem.</li>
-                <li>O valor do sinal assegura sua vaga e não é reembolsável.</li>
-            </ul>
-        </div>
-
-        <h3 style="color: var(--rosa-principal); font-size: 16px; margin-bottom: 15px;">Preencha seus dados:</h3>
-        
