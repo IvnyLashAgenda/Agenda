@@ -244,8 +244,8 @@
 <div class="container">
     <div class="header-banner">
         <div class="logo-perfil">
-            <!-- Forçado para ler o seu arquivo .jpg em minúsculo -->
-            <img src="foto-perfil.jpg" alt="Foto de Perfil">
+            <!-- Puxando o nome exato da imagem identificada no seu print -->
+            <img src="./foto-perfil.jpg.jpg" alt="Foto de Perfil" onerror="this.src='./foto-perfil.jpg'">
         </div>
     </div>
 
@@ -285,7 +285,7 @@
 
     </div>
 
-    <!-- Formulário Condicional Corrigido -->
+    <!-- Formulário Condicional -->
     <div class="formulario-bloco" id="formulario-agendamento">
         <div class="regras-studio">
             <h4>⚠️ Regras do Estúdio</h4>
@@ -298,4 +298,3 @@
 
         <h3 style="color: var(--rosa-principal); font-size: 16px; margin-bottom: 15px;">Preencha seus dados:</h3>
         
-        <form onsubmit="enviarDados(event)">
