@@ -74,7 +74,6 @@
             display: block;
         }
 
-        /* Texto da Logo Redonda "LASH DIVAS" idêntico ao print */
         .logo-formulario-texto {
             color: #d15872;
             font-weight: 700;
@@ -198,14 +197,12 @@
             box-shadow: 0 6px 15px rgba(125, 95, 255, 0.1);
         }
 
-        /* Estrutura das Seções Ocultas */
         .formulario-bloco, .pagamento-bloco {
             padding: 0 20px;
             display: none;
             width: 100%;
         }
 
-        /* Botão Voltar Rosa do seu Print */
         .btn-voltar {
             color: var(--rosa-principal);
             background: none;
@@ -218,7 +215,6 @@
             margin-bottom: 25px;
         }
 
-        /* Card de Regras Idêntico ao Print */
         .regras-studio {
             background: #fff5f6;
             border: 1px solid #ffe3e7;
@@ -243,7 +239,6 @@
             list-style-type: disc; 
         }
 
-        /* Título Dados da Diva em Rosa do Print */
         .titulo-formulario {
             color: var(--rosa-principal);
             font-size: 20px;
@@ -260,7 +255,6 @@
         }
         input:focus, select:focus, textarea:focus { border-color: var(--rosa-principal); outline: none; background: var(--fundo-app); }
 
-        /* Input de serviço selecionado cinza travado do seu print */
         input#servico_visivel {
             background-color: #f1f3f5;
             color: #495057;
@@ -312,12 +306,21 @@
 <div class="container">
     <div class="header-banner">
         <div class="logo-perfil" id="container-logo-mudavel">
-            <!-- Foto de perfil oficial carregada na tela inicial -->
             <img src="./foto-perfil.jpg.jpg" alt="Foto de Perfil" onerror="this.src='./foto-perfil.jpg'">
         </div>
     </div>
 
-    <!-- ETAPA 1: Catálogo de Cílios -->
+    <!-- PRIMEIRA CAMADA: Catálogo Completo -->
     <div id="secao-catalogo">
         <p class="boas-vindas">
             Oi miguxas 💕✨<br>
+            Vamos realçar seus olhares e deixar vocês ainda mais lindas? 😍<br>
+            Agende seu horário e venha se sentir poderosa com cílios feitos especialmente para você! 💖👁️✨
+        </p>
+
+        <button class="btn-manutencao" onclick="rolarParaModelos()">Agendar Manutenção</button>
+
+        <h2 class="titulo-secao">Modelos de cílios</h2>
+
+        <div class="lista-servicos" id="lista-modelos">
+            
