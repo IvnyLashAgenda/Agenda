@@ -18,12 +18,12 @@
         * {
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             background-color: var(--fundo-branco);
-            margin: 0;
-            padding: 0;
             color: var(--texto);
             display: flex;
             justify-content: center;
@@ -110,11 +110,8 @@
             margin-bottom: 20px;
         }
 
-        /* Grade de Cílios Lado a Lado */
-        .grid-modelos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+        /* Lista de Serviços Vertical - Alinhamento Perfeito */
+        .lista-servicos {
             padding: 0 20px;
         }
 
@@ -126,57 +123,60 @@
             cursor: pointer;
             transition: all 0.25s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            margin-bottom: 15px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
         }
 
         .card-cilios img {
-            width: 100%;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             object-fit: cover;
             background-color: #fafafa;
+            flex-shrink: 0;
         }
 
         .card-info {
-            padding: 12px;
+            padding: 12px 15px;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         .card-info h3 {
-            margin: 0 0 4px 0;
-            font-size: 13.5px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--texto);
+            margin-bottom: 3px;
         }
 
         .card-info p {
-            margin: 0 0 10px 0;
             font-size: 11px;
             color: #666;
             line-height: 1.3;
+            margin-bottom: 6px;
+        }
+
+        .valores-bloco {
+            display: flex;
+            gap: 12px;
+            align-items: center;
         }
 
         .preco-principal {
             color: var(--rosa-principal);
             font-weight: 700;
-            font-size: 14px;
-            margin: 0;
+            font-size: 13.5px;
         }
 
         .preco-manut {
-            font-size: 10px;
+            font-size: 10.5px;
             color: var(--roxo-principal);
             font-weight: 500;
-            margin: 2px 0 0 0;
         }
 
         .card-cilios:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             border-color: var(--roxo-principal);
-            box-shadow: 0 6px 15px rgba(125, 95, 255, 0.15);
+            box-shadow: 0 6px 15px rgba(125, 95, 255, 0.1);
         }
 
         .card-cilios.selecionado {
@@ -199,8 +199,8 @@
             margin-bottom: 25px;
         }
 
-        .regras-studio h4 { margin: 0 0 8px 0; color: #d63031; font-size: 14px; }
-        .regras-studio ul { margin: 0; padding-left: 18px; font-size: 12px; color: #555; line-height: 1.5; }
+        .regras-studio h4 { margin-bottom: 8px; color: #d63031; font-size: 14px; font-weight: 600; }
+        .regras-studio ul { padding-left: 18px; font-size: 12px; color: #555; line-height: 1.5; list-style-type: disc; }
 
         .campo { margin-bottom: 15px; }
         label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 600; color: var(--roxo-escuro); }
@@ -214,14 +214,14 @@
             display: flex; align-items: center; gap: 10px; background: var(--fundo-branco);
             padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 10px;
         }
-        .checkbox-group input { width: 16px; height: 16px; margin: 0; accent-color: var(--roxo-principal); }
-        .checkbox-group label { margin: 0; font-size: 12.5px; color: var(--texto); font-weight: 400; }
+        .checkbox-group input { width: 16px; height: 16px; accent-color: var(--roxo-principal); margin: 0; }
+        .checkbox-group label { font-size: 12.5px; color: var(--texto); font-weight: 400; margin: 0; }
 
         .bloco-pagamento {
             background: #fff8f9; border: 2px dashed var(--rosa-banner);
             padding: 18px; border-radius: 14px; text-align: center; margin-top: 25px;
         }
-        .bloco-pagamento h4 { margin: 0 0 5px 0; color: var(--rosa-principal); font-size: 14px; }
+        .bloco-pagamento h4 { margin-bottom: 5px; color: var(--rosa-principal); font-size: 14px; }
         .bloco-pagamento p { font-size: 12px; color: #555; margin: 4px 0; }
         .chave-pix {
             background: var(--fundo-branco); padding: 8px 14px; border-radius: 8px; border: 1px solid #ffe3e7;
@@ -241,7 +241,6 @@
     <!-- Banner superior -->
     <div class="header-banner">
         <div class="logo-perfil">
-            <!-- Puxa a imagem enviada para o seu repositório -->
             <img src="foto-perfil.jpg" alt="Foto de Perfil">
         </div>
     </div>
@@ -256,20 +255,18 @@
 
     <h2 class="titulo-secao">Modelos de cílios</h2>
 
-    <!-- Grade com 2 Colunas -->
-    <div class="grid-modelos" id="lista-modelos">
+    <!-- Lista Vertical Estável -->
+    <div class="lista-servicos" id="lista-modelos">
         
         <!-- Modelo 1 -->
         <div class="card-cilios" onclick="selecionarModelo(this, 'Fio a Fio Clássico', 'R$ 95,00')">
             <img src="https://unsplash.com" alt="Fio a Fio">
             <div class="card-info">
-                <div>
-                    <h3>Fio a Fio Clássico</h3>
-                    <p>Naturalidade e efeito rímel, sem volume exagerado.</p>
-                </div>
-                <div>
+                <h3>Fio a Fio Clássico</h3>
+                <p>Naturalidade e efeito rímel, sem volume exagerado.</p>
+                <div class="valores-bloco">
                     <span class="preco-principal">R$ 95,00</span>
-                    <p class="preco-manut">Manut: R$ 75,00</p>
+                    <span class="preco-manut">Manut: R$ 75,00</span>
                 </div>
             </div>
         </div>
@@ -278,13 +275,11 @@
         <div class="card-cilios" onclick="selecionarModelo(this, 'Volume Brasileiro', 'R$ 115,00')">
             <img src="https://unsplash.com" alt="Volume Brasileiro">
             <div class="card-info">
-                <div>
-                    <h3>Volume Brasileiro</h3>
-                    <p>Efeito marcante, preto e volumoso. Visual intermediário.</p>
-                </div>
-                <div>
+                <h3>Volume Brasileiro</h3>
+                <p>Efeito marcante, preto e volumoso. Visual intermediário.</p>
+                <div class="valores-bloco">
                     <span class="preco-principal">R$ 115,00</span>
-                    <p class="preco-manut">Manut: R$ 85,00</p>
+                    <span class="preco-manut">Manut: R$ 85,00</span>
                 </div>
             </div>
         </div>
@@ -299,3 +294,7 @@
             <ul>
                 <li>Tolerância máxima de 10 minutos de atraso.</li>
                 <li>Venha de olhos limpos e sem maquiagem.</li>
+                <li>O valor do sinal assegura sua vaga e não é reembolsável.</li>
+            </ul>
+        </div>
+
