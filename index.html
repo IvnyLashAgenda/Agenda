@@ -23,7 +23,6 @@
             padding: 0;
         }
 
-        /* Garante que o fundo da tela do PC seja cinza e centralize o "celular" */
         body {
             background-color: var(--fundo-pagina);
             color: var(--texto);
@@ -34,7 +33,6 @@
             padding: 0;
         }
 
-        /* Limita o site ao tamanho real de um celular moderno */
         .container {
             width: 100%;
             max-width: 430px; 
@@ -42,10 +40,8 @@
             min-height: 100vh;
             box-shadow: 0 0 30px rgba(0,0,0,0.1);
             padding-bottom: 40px;
-            position: relative;
         }
 
-        /* Topo com o Banner Rosa */
         .header-banner {
             background-color: var(--rosa-banner);
             height: 140px;
@@ -56,19 +52,15 @@
             width: 100%;
         }
 
-        /* Foto de Perfil Redonda Centralizada */
         .logo-perfil {
             width: 120px;
             height: 120px;
-            background: var(--fundo-app);
+            background: #eee; /* Fundo cinza caso a foto demore a carregar */
             border-radius: 50%;
             position: absolute;
             bottom: -60px;
             border: 4px solid var(--fundo-app);
             box-shadow: 0 4px 15px rgba(125, 95, 255, 0.15);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             overflow: hidden;
         }
 
@@ -76,9 +68,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        /* Texto de Boas-Vindas */
         .boas-vindas {
             text-align: center;
             padding: 0 25px;
@@ -88,7 +80,6 @@
             margin-bottom: 25px;
         }
 
-        /* Botão de Manutenção Otimizado */
         .btn-manutencao {
             display: block;
             width: fit-content;
@@ -117,7 +108,6 @@
             margin-bottom: 20px;
         }
 
-        /* Lista Vertical de Cílios Travada */
         .lista-servicos {
             padding: 0 20px;
             width: 100%;
@@ -193,7 +183,6 @@
             background-color: #fcfbff;
         }
 
-        /* Formulário Ajustado */
         .formulario-bloco {
             padding: 20px;
             display: none;
@@ -250,53 +239,22 @@
 <body>
 
 <div class="container">
-    <!-- Banner superior -->
     <div class="header-banner">
         <div class="logo-perfil">
-            <!-- Puxará o arquivo foto-perfil.jpg que você subir -->
+            <!-- Puxa a imagem enviada para o seu repositório -->
             <img src="foto-perfil.jpg" alt="Foto">
         </div>
     </div>
 
-    <!-- Boas-vindas -->
     <p class="boas-vindas">
         Oi Diva, que bom te ver por aqui. Vamos escolher um modelo pra você arrasar?
     </p>
 
-    <!-- Botão de Manutenção Rápido -->
     <button class="btn-manutencao" onclick="rolarParaModelos()">Agendar Manutenção</button>
 
     <h2 class="titulo-secao">Modelos de cílios</h2>
 
-    <!-- Lista Vertical Sólida -->
     <div class="lista-servicos" id="lista-modelos">
         
-        <!-- Modelo 1 -->
         <div class="card-cilios" onclick="selecionarModelo(this, 'Fio a Fio Clássico', 'R$ 95,00')">
-            <img src="https://unsplash.com" alt="Fio a Fio">
-            <div class="card-info">
-                <h3>Fio a Fio Clássico</h3>
-                <p>Naturalidade e efeito rímel, sem volume exagerado.</p>
-                <div class="valores-bloco">
-                    <span class="preco-principal">R$ 95,00</span>
-                    <span class="preco-manut">Manut: R$ 75,00</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modelo 2 -->
-        <div class="card-cilios" onclick="selecionarModelo(this, 'Volume Brasileiro', 'R$ 115,00')">
-            <img src="https://unsplash.com" alt="Volume Brasileiro">
-            <div class="card-info">
-                <h3>Volume Brasileiro</h3>
-                <p>Efeito marcante, preto e volumoso. Visual intermediário.</p>
-                <div class="valores-bloco">
-                    <span class="preco-principal">R$ 115,00</span>
-                    <span class="preco-manut">Manut: R$ 85,00</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Formulário Condicional -->
+            <img src="
