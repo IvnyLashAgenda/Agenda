@@ -27,7 +27,7 @@
             background-color: var(--fundo-pagina);
             color: var(--texto);
             display: flex;
-            justify-content: center;
+            justify(content): center;
             align-items: flex-start;
             min-height: 100vh;
             padding: 0;
@@ -40,6 +40,7 @@
             min-height: 100vh;
             box-shadow: 0 0 30px rgba(0,0,0,0.1);
             padding-bottom: 40px;
+            margin: 0 auto;
         }
 
         .header-banner {
@@ -74,7 +75,7 @@
             display: block;
         }
 
-        /* Logo Redonda em Roxo para a segunda aba conforme o print */
+        /* Texto interno da logo redonda para a segunda camada */
         .logo-formulario-texto {
             color: var(--rosa-principal);
             font-weight: 700;
@@ -192,7 +193,7 @@
             font-weight: 500;
         }
 
-        /* Segunda Aba de Formulário (Oculta e abre por cima por comando) */
+        /* Camada do Formulário (Oculta incialmente) */
         .formulario-bloco {
             padding: 0 20px;
             display: none;
@@ -212,7 +213,7 @@
             margin-bottom: 25px;
         }
 
-        /* Regras do Studio Idênticas ao seu Print */
+        /* Caixa de Regras do Print do TikTok */
         .regras-studio {
             background: #fff5f6;
             border: 1px solid #ffe3e7;
@@ -260,7 +261,7 @@
         }
         input:focus, select:focus, textarea:focus { border-color: var(--rosa-principal); outline: none; background: var(--fundo-app); }
 
-        /* Campo cinza desativado idêntico ao do print do TikTok */
+        /* Estilo Cinza Travado para o Serviço Escolhido */
         input#servico_visivel {
             background-color: #f1f3f5;
             color: #495057;
@@ -305,7 +306,7 @@
         </div>
     </div>
 
-    <!-- Seção Principal do Catálogo -->
+    <!-- PRIMEIRA CAMADA: Catálogo Completo -->
     <div id="secao-catalogo">
         <p class="boas-vindas">
             Oi miguxas 💕✨<br>
@@ -319,4 +320,4 @@
 
         <div class="lista-servicos" id="lista-modelos">
             
-            <div class="card-cilios" onclick="mostrarAbaFormulario('Fio a Fio Clássico', 'R$ 95,00')">
+            <div class="card-cilios" onclick="trocarCamadaFormulario('Fio a Fio Clássico', 'R$ 95,00')">
