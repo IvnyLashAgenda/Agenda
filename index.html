@@ -74,6 +74,16 @@
             display: block;
         }
 
+        /* Logo Redonda em Roxo para a segunda aba conforme o print */
+        .logo-formulario-texto {
+            color: var(--rosa-principal);
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
         .boas-vindas {
             text-align: center;
             padding: 0 25px;
@@ -182,10 +192,107 @@
             font-weight: 500;
         }
 
-        .card-cilios:hover {
-            transform: translateY(-2px);
-            border-color: var(--roxo-principal);
-            box-shadow: 0 6px 15px rgba(125, 95, 255, 0.1);
+        /* Segunda Aba de Formulário (Oculta e abre por cima por comando) */
+        .formulario-bloco {
+            padding: 0 20px;
+            display: none;
+            width: 100%;
+        }
+
+        .btn-voltar {
+            color: var(--rosa-principal);
+            background: none;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 25px;
+        }
+
+        /* Regras do Studio Idênticas ao seu Print */
+        .regras-studio {
+            background: #fff5f6;
+            border: 1px solid #ffe3e7;
+            border-left: 4px solid var(--rosa-principal);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .regras-studio h4 { 
+            margin: 0 0 10px 0; 
+            color: var(--rosa-principal); 
+            font-size: 14px; 
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .regras-studio ul { 
+            padding-left: 18px; 
+            font-size: 12.5px; 
+            color: #444; 
+            line-height: 1.6; 
+            list-style-type: disc; 
+        }
+
+        .regras-studio ul strong {
+            color: #111;
+        }
+
+        .titulo-formulario {
+            color: var(--rosa-principal);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .campo { margin-bottom: 18px; width: 100%; }
+        label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; color: #111; }
+        
+        input, select, textarea {
+            width: 100%; padding: 12px 14px; border: 1px solid #e2e8f0; border-radius: 12px;
+            background: #f8fafc; font-size: 13.5px; box-sizing: border-box; transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--rosa-principal); outline: none; background: var(--fundo-app); }
+
+        /* Campo cinza desativado idêntico ao do print do TikTok */
+        input#servico_visivel {
+            background-color: #f1f3f5;
+            color: #495057;
+            border: 1px solid #ced4da;
+            cursor: not-allowed;
+            font-weight: 500;
+        }
+
+        .checkbox-group {
+            display: flex; align-items: center; gap: 10px; background: var(--fundo-app);
+            padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 10px;
+            width: 100%;
+        }
+        .checkbox-group input { width: 16px; height: 16px; accent-color: var(--roxo-principal); margin: 0; flex-shrink: 0; }
+        .checkbox-group label { font-size: 12.5px; color: var(--texto); font-weight: 400; margin: 0; }
+
+        .bloco-pagamento {
+            background: #fff8f9; border: 2px dashed var(--rosa-banner);
+            padding: 18px; border-radius: 14px; text-align: center; margin-top: 25px;
+            width: 100%;
+        }
+        .bloco-pagamento h4 { margin-bottom: 5px; color: var(--rosa-principal); font-size: 14px; }
+        .bloco-pagamento p { font-size: 12px; color: #555; margin: 4px 0; }
+        .chave-pix {
+            background: var(--fundo-app); padding: 8px 14px; border-radius: 8px; border: 1px solid #ffe3e7;
+            display: inline-block; font-weight: 600; font-size: 12.5px; color: var(--roxo-escuro); margin: 8px 0;
+        }
+
+        .btn-finalizar {
+            background: linear-gradient(135deg, #25d366 0%, #1ebd59 100%); color: white; border: none; padding: 14px;
+            width: 100%; border-radius: 10px; font-size: 14px; font-weight: 600;
+            cursor: pointer; margin-top: 20px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
     </style>
 </head>
@@ -193,11 +300,12 @@
 
 <div class="container">
     <div class="header-banner">
-        <div class="logo-perfil">
+        <div class="logo-perfil" id="container-logo-mudavel">
             <img src="./foto-perfil.jpg.jpg" alt="Foto de Perfil" onerror="this.src='./foto-perfil.jpg'">
         </div>
     </div>
 
+    <!-- Seção Principal do Catálogo -->
     <div id="secao-catalogo">
         <p class="boas-vindas">
             Oi miguxas 💕✨<br>
@@ -211,48 +319,4 @@
 
         <div class="lista-servicos" id="lista-modelos">
             
-            <!-- Ordem para abrir em uma nova aba configurada pelo JavaScript -->
-            <div class="card-cilios" onclick="irParaFormulario('Fio a Fio Clássico', 'R$ 95,00')">
-                <img src="https://unsplash.com" alt="Fio a Fio">
-                <div class="card-info">
-                    <div>
-                        <h3>Fio a Fio Clássico</h3>
-                        <p>Naturalidade e efeito rímel.</p>
-                    </div>
-                    <div class="valores-bloco">
-                        <span class="preco-principal">R$ 95,00</span>
-                        <span class="preco-manut">Manut: R$ 75,00</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-cilios" onclick="irParaFormulario('Volume Brasileiro', 'R$ 115,00')">
-                <img src="https://unsplash.com" alt="Volume Brasileiro">
-                <div class="card-info">
-                    <div>
-                        <h3>Volume Brasileiro</h3>
-                        <p>Efeito marcante e volumoso.</p>
-                    </div>
-                    <div class="valores-bloco">
-                        <span class="preco-principal">R$ 115,00</span>
-                        <span class="preco-manut">Manut: R$ 85,00</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<script>
-    function rolarParaModelos() {
-        document.getElementById('lista-modelos').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Abre o formulário da outra página em uma ABA TOTALMENTE NOVA
-    function irParaFormulario(nome, valor) {
-        window.open('agendamento.html', '_blank');
-    }
-</script>
-</body>
-</html>
+            <div class="card-cilios" onclick="mostrarAbaFormulario('Fio a Fio Clássico', 'R$ 95,00')">
