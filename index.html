@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estúdio de Cílios - Agendamento</title>
+    <style>
+        :root {
+            --roxo-principal: #6c5ce7;
+            --roxo-escuro: #4834d4;
+            --rosa-principal: #ff758f;
+            --rosa-claro: #fff0f3;
+            --fundo: #ffffff;
+            --texto: #2d3436;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: var(--roxo-escuro);
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        .subtitulo {
+            text-align: center;
+            color: var(--rosa-principal);
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        h2 {
+            color: var(--roxo-principal);
+            border-bottom: 2px solid var(--rosa-claro);
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        .card-servico {
+            border: 2px solid #f1f2f6;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-servico h3 {
+            margin: 0;
+            color: var(--texto);
+            font-size: 16px;
+        }
+        .card-servico p {
+            margin: 5px 0 0 0;
+            color: var(--roxo-principal);
+            font-weight: bold;
+        }
+        .card-servico:hover {
+            border-color: var(--rosa-principal);
+            transform: translateY(-2px);
+        }
+        .card-servico.selecionado {
+            border-color: var(--roxo-principal);
+            background-color: var(--rosa-claro);
+        }
+        .regras-studio {
+            background: #f8f7ff;
+            border-left: 5px solid var(--roxo-principal);
+            padding: 15px;
+            margin: 25px 0;
+            display: none;
+            border-radius: 0 12px 12px 0;
+        }
+        .regras-studio h3 {
+            margin-top: 0;
+            color: var(--roxo-escuro);
+        }
+        .campo {
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: var(--texto);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #f1f2f6;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: 0.3s;
+            background-color: #fafafa;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--roxo-principal);
+            outline: none;
+            background-color: #fff;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .checkbox-group input {
+            width: auto;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        .bloco-pagamento {
+            background: linear-gradient(135deg, #fff0f3 0%, #f8f7ff 100%);
+            border: 2px dashed var(--rosa-principal);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 25px;
+        }
+        .bloco-pagamento h3 {
+            margin-top: 0;
+            color: var(--rosa-principal);
+        }
+        .chave-pix {
+            background: white;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            display: inline-block;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin: 5px 0;
+        }
+        .btn-enviar {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 25px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: 0.3s;
+        }
+        .btn-enviar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Estúdio Lash Designer</h1>
+    <p class="subtitulo">✨ Realçando o seu olhar ✨</p>
+
+    <!-- Seleção de Serviços -->
+    <div id="servicos">
+        <div class="card-servico" onclick="selecionarServico(this, 'Fio a Fio', 'R$ 100,00')">
+            <div>
+                <h3>Fio a Fio Clássico</h3>
+                <p>R$ 100,00</p>
+            </div>
+            <span>➡️</span>
+        </div>
+        <div class="card-servico" onclick="selecionarServico(this, 'Volume Brasileiro', 'R$ 130,00')">
+            <div>
+                <h3>Volume Brasileiro</h3>
+                <p>R$ 130,00</p>
+            </div>
+            <span>➡️</span>
+        </div>
+        <div class="card-servico" onclick="selecionarServico(this, 'Manutenção Fio a Fio', 'R$ 60,00')">
+            <div>
+                <h3>Manutenção Fio a Fio</h3>
+                <p>R$ 60,00</p>
+            </div>
+            <span>➡️</span>
+        </div>
+        <div class="card-servico" onclick="selecionarServico(this, 'Manutenção Volume Brasileiro', 'R$ 80,00')">
+            <div>
+                <h3>Manutenção Volume Brasileiro</h3>
+                <p>R$ 80,00</p>
+            </div>
+            <span>➡️</span>
+        </div>
+    </div>
+
+    <!-- Seção Oculta que aparece após selecionar o serviço -->
+    <div id="formulario-agendamento" style="display: none;">
+        
+        <!-- Regras do Studio -->
+        <div class="regras-studio" id="regras">
+            <h3>⚠️ Regras do Estúdio</h3>
+            <ul>
+                <li>Chegar com tolerância máxima de 10 minutos de atraso.</li>
+                <li>Por favor, venha sem maquiagem na região dos olhos.</li>
+                <li>O valor do sinal não é reembolsável em caso de falta sem aviso prévio de 24h.</li>
+            </ul>
+        </div>
+
+        <h2>Dados do Agendamento</h2>
+        <form id="formLash" onsubmit="enviarWhatsApp(event)">
+            
+            <input type="hidden" id="servico_escolhido">
+            <input type="hidden" id="valor_escolhido">
+
+            <div class="campo">
+                <label for="nome">Seu Nome Completo:</label>
+                <input type="text" id="nome" required placeholder="Digite seu nome">
+            </div>
+
+            <div class="campo">
+                <label for="whatsapp">Seu WhatsApp:</label>
+                <input type="tel" id="whatsapp" required placeholder="(00) 00000-0000">
+            </div>
+
+            <div class="campo">
+                <label for="data">Escolha o Dia:</label>
+                <input type="date" id="data" required>
+            </div>
+
+            <div class="campo">
+                <label for="horario">Escolha o Horário:</label>
+                <select id="horario" required>
+                    <option value="">Selecione um horário...</option>
+                    <option value="09:00">09:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="16:00">16:00</option>
+                </select>
+            </div>
+
+            <h2>Ficha de Anamnese</h2>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="lente">
+                <label for="lente">Usa lentes de contato?</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="alergia_cosmetico">
+                <label for="alergia_cosmetico">Tem alergia a cosméticos?</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="alergia_esmalte">
+                <label for="alergia_esmalte">Tem alergia a esmalte?</label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="alergia_cola">
+                <label for="alergia_cola">Tem alergia a cola / cianoacrilato?</label>
+            </div>
+
+            <div class="campo">
+                <label for="observacoes">Observações importantes:</label>
+                <textarea id="observacoes" rows="3" placeholder="Ex: Alguma sensibilidade, cirurgia recente, gestante..."></textarea>
+            </div>
+
+            <!-- Bloco de Sinal e Pix -->
+            <div class="bloco-pagamento">
+                <h3>Reserva de Vaga (Sinal)</h3>
+                <p>Para confirmar seu horário, realize o pagamento do sinal de <strong>R$ 30,00</strong>.</p>
+                <p><strong>Chave PIX:</strong></p>
+                <div class="chave-pix">DIGITE_AQUI_A_CHAVE_PIX</div>
+                <p><small style="color: #777;">O restante do valor do serviço será pago no dia do atendimento.</small></p>
+            </div>
+
+            <button type="submit" class="btn-enviar">Finalizar e Enviar Comprovante por WhatsApp</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Seu WhatsApp já configurado corretamente!
