@@ -74,6 +74,16 @@
             display: block;
         }
 
+        /* Texto da Logo Redonda "LASH DIVAS" idêntico ao print */
+        .logo-formulario-texto {
+            color: #d15872;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
         .boas-vindas {
             text-align: center;
             padding: 0 25px;
@@ -188,13 +198,14 @@
             box-shadow: 0 6px 15px rgba(125, 95, 255, 0.1);
         }
 
-        /* Estrutura das Seções Separadas */
+        /* Estrutura das Seções Ocultas */
         .formulario-bloco, .pagamento-bloco {
             padding: 0 20px;
             display: none;
             width: 100%;
         }
 
+        /* Botão Voltar Rosa do seu Print */
         .btn-voltar {
             color: var(--rosa-principal);
             background: none;
@@ -204,22 +215,22 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
+        /* Card de Regras Idêntico ao Print */
         .regras-studio {
             background: #fff5f6;
             border: 1px solid #ffe3e7;
             border-left: 4px solid var(--rosa-principal);
             padding: 18px;
             border-radius: 12px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .regras-studio h4 { 
             margin: 0 0 10px 0; 
-            color: #d63031; 
+            color: var(--rosa-principal); 
             font-size: 14px; 
             font-weight: 600;
         }
@@ -232,30 +243,30 @@
             list-style-type: disc; 
         }
 
+        /* Título Dados da Diva em Rosa do Print */
         .titulo-formulario {
             color: var(--rosa-principal);
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 15px;
-            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .campo { margin-bottom: 15px; width: 100%; }
-        label { display: block; margin-bottom: 6px; font-size: 12.5px; font-weight: 600; color: #111; }
+        .campo { margin-bottom: 18px; width: 100%; }
+        label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; color: #111; }
         
         input, select, textarea {
-            width: 100%; padding: 11px 14px; border: 1px solid #e2e8f0; border-radius: 10px;
-            background: #f8fafc; font-size: 13px; box-sizing: border-box; transition: 0.2s;
+            width: 100%; padding: 12px 14px; border: 1px solid #e2e8f0; border-radius: 12px;
+            background: #f8fafc; font-size: 13.5px; box-sizing: border-box; transition: 0.2s;
         }
         input:focus, select:focus, textarea:focus { border-color: var(--rosa-principal); outline: none; background: var(--fundo-app); }
 
-        /* Estilo Cinza Travado para o Campo de Serviço Escolhido */
+        /* Input de serviço selecionado cinza travado do seu print */
         input#servico_visivel {
             background-color: #f1f3f5;
             color: #495057;
             border: 1px solid #ced4da;
             cursor: not-allowed;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         .checkbox-regras {
@@ -300,23 +311,13 @@
 
 <div class="container">
     <div class="header-banner">
-        <div class="logo-perfil">
+        <div class="logo-perfil" id="container-logo-mudavel">
+            <!-- Foto de perfil oficial carregada na tela inicial -->
             <img src="./foto-perfil.jpg.jpg" alt="Foto de Perfil" onerror="this.src='./foto-perfil.jpg'">
         </div>
     </div>
 
-    <!-- ID OBRIGATÓRIO: secao-catalogo -->
+    <!-- ETAPA 1: Catálogo de Cílios -->
     <div id="secao-catalogo">
         <p class="boas-vindas">
             Oi miguxas 💕✨<br>
-            Vamos realçar seus olhares e deixar vocês ainda mais lindas? 😍<br>
-            Agende seu horário e venha se sentir poderosa com cílios feitos especialmente para você! 💖👁️✨
-        </p>
-
-        <button class="btn-manutencao" onclick="rolarParaModelos()">Agendar Manutenção</button>
-
-        <h2 class="titulo-secao">Modelos de cílios</h2>
-
-        <div class="lista-servicos" id="lista-modelos">
-            
-            <!-- Cards conectados perfeitamente à função JavaScript certa -->
