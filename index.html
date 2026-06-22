@@ -55,13 +55,16 @@
         .logo-perfil {
             width: 120px;
             height: 120px;
-            background: #eee; /* Fundo cinza caso a foto demore a carregar */
+            background: #fff;
             border-radius: 50%;
             position: absolute;
             bottom: -60px;
             border: 4px solid var(--fundo-app);
             box-shadow: 0 4px 15px rgba(125, 95, 255, 0.15);
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .logo-perfil img {
@@ -241,8 +244,8 @@
 <div class="container">
     <div class="header-banner">
         <div class="logo-perfil">
-            <!-- Puxa a imagem enviada para o seu repositório -->
-            <img src="foto-perfil.jpg" alt="Foto">
+            <!-- Puxa o arquivo de imagem do repositório -->
+            <img src="foto-perfil.jpg" alt="Foto de Perfil">
         </div>
     </div>
 
@@ -257,4 +260,42 @@
     <div class="lista-servicos" id="lista-modelos">
         
         <div class="card-cilios" onclick="selecionarModelo(this, 'Fio a Fio Clássico', 'R$ 95,00')">
-            <img src="
+            <img src="https://unsplash.com" alt="Fio a Fio">
+            <div class="card-info">
+                <h3>Fio a Fio Clássico</h3>
+                <p>Naturalidade e efeito rímel, sem volume exagerado.</p>
+                <div class="valores-bloco">
+                    <span class="preco-principal">R$ 95,00</span>
+                    <span class="preco-manut">Manut: R$ 75,00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-cilios" onclick="selecionarModelo(this, 'Volume Brasileiro', 'R$ 115,00')">
+            <img src="https://unsplash.com" alt="Volume Brasileiro">
+            <div class="card-info">
+                <h3>Volume Brasileiro</h3>
+                <p>Efeito marcante, preto e volumoso. Visual intermediário.</p>
+                <div class="valores-bloco">
+                    <span class="preco-principal">R$ 115,00</span>
+                    <span class="preco-manut">Manut: R$ 85,00</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="formulario-bloco" id="formulario-agendamento">
+        <div class="regras-studio">
+            <h4>⚠️ Regras do Estúdio</h4>
+            <ul>
+                <li>Tolerância máxima de 10 minutos de atraso.</li>
+                <li>Venha de olhos limpos e sem maquiagem.</li>
+                <li>O valor do sinal assegura sua vaga e não é reembolsável.</li>
+            </ul>
+        </div>
+
+        <h3 style="color: var(--rosa-principal); font-size: 16px; margin-bottom: 15px;">Preencha seus dados:</h3>
+        
+        <form onsubmit="enviarDados(event)">
+            <input type="hidden" id="servico_escolhido">
