@@ -182,7 +182,13 @@
             font-weight: 500;
         }
 
-        /* Estrutura das Camadas Ocultas */
+        .card-cilios:hover {
+            transform: translateY(-2px);
+            border-color: var(--roxo-principal);
+            box-shadow: 0 6px 15px rgba(125, 95, 255, 0.1);
+        }
+
+        /* Estrutura das Seções Separadas */
         .formulario-bloco, .pagamento-bloco {
             padding: 0 20px;
             display: none;
@@ -202,7 +208,6 @@
             margin-bottom: 20px;
         }
 
-        /* Card de Regras Atualizado */
         .regras-studio {
             background: #fff5f6;
             border: 1px solid #ffe3e7;
@@ -244,7 +249,15 @@
         }
         input:focus, select:focus, textarea:focus { border-color: var(--rosa-principal); outline: none; background: var(--fundo-app); }
 
-        /* Estilo Checkbox de Regras OBRIGATÓRIO */
+        /* Estilo Cinza Travado para o Campo de Serviço Escolhido */
+        input#servico_visivel {
+            background-color: #f1f3f5;
+            color: #495057;
+            border: 1px solid #ced4da;
+            cursor: not-allowed;
+            font-weight: 600;
+        }
+
         .checkbox-regras {
             display: flex;
             align-items: flex-start;
@@ -258,7 +271,6 @@
         .checkbox-regras input { width: 18px; height: 18px; accent-color: var(--rosa-principal); margin-top: 2px; cursor: pointer; flex-shrink: 0; }
         .checkbox-regras label { font-size: 12.5px; font-weight: 500; color: #111; cursor: pointer; margin: 0; }
 
-        /* Botões de Ação */
         .btn-continuar {
             background: var(--roxo-principal); color: white; border: none; padding: 14px;
             width: 100%; border-radius: 10px; font-size: 14px; font-weight: 600;
@@ -293,7 +305,7 @@
         </div>
     </div>
 
-    <!-- ETAPA 1: Catálogo de Cílios -->
+    <!-- ID OBRIGATÓRIO: secao-catalogo -->
     <div id="secao-catalogo">
         <p class="boas-vindas">
             Oi miguxas 💕✨<br>
@@ -307,11 +319,4 @@
 
         <div class="lista-servicos" id="lista-modelos">
             
-            <div class="card-cilios" onclick="irParaFormulario('Fio a Fio Clássico', 'R$ 95,00')">
-                <img src="https://unsplash.com" alt="Fio a Fio">
-                <div class="card-info">
-                    <div>
-                        <h3>Fio a Fio Clássico</h3>
-                        <p>Naturalidade e efeito rímel.</p>
-                    </div>
-                    <div class="valores-bloco">
+            <!-- Cards conectados perfeitamente à função JavaScript certa -->
