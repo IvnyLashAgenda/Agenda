@@ -3,297 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estúdio de Cílios - Agendamento</title>
+    <title>Ivny Lash Agenda</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --roxo-principal: #6c5ce7;
-            --roxo-escuro: #4834d4;
-            --rosa-principal: #ff758f;
-            --rosa-claro: #fff0f3;
-            --fundo: #ffffff;
+            --rosa-banner: #ffb1c1;
+            --rosa-texto: #d15872;
+            --roxo-detalhe: #8e7dff;
+            --cinza-fundo: #fdfafb;
             --texto: #2d3436;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--fundo);
-            color: var(--texto);
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: var(--roxo-escuro);
-            font-size: 28px;
-            margin-bottom: 5px;
-        }
-        .subtitulo {
-            text-align: center;
-            color: var(--rosa-principal);
-            margin-top: 0;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        h2 {
-            color: var(--roxo-principal);
-            border-bottom: 2px solid var(--rosa-claro);
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
-        .card-servico {
-            border: 2px solid #f1f2f6;
-            border-radius: 12px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .card-servico h3 {
-            margin: 0;
-            color: var(--texto);
-            font-size: 16px;
-        }
-        .card-servico p {
-            margin: 5px 0 0 0;
-            color: var(--roxo-principal);
-            font-weight: bold;
-        }
-        .card-servico:hover {
-            border-color: var(--rosa-principal);
-            transform: translateY(-2px);
-        }
-        .card-servico.selecionado {
-            border-color: var(--roxo-principal);
-            background-color: var(--rosa-claro);
-        }
-        .regras-studio {
-            background: #f8f7ff;
-            border-left: 5px solid var(--roxo-principal);
-            padding: 15px;
-            margin: 25px 0;
-            display: none;
-            border-radius: 0 12px 12px 0;
-        }
-        .regras-studio h3 {
-            margin-top: 0;
-            color: var(--roxo-escuro);
-        }
-        .campo {
-            margin-bottom: 18px;
-        }
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: var(--texto);
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #f1f2f6;
-            border-radius: 8px;
+        
+        * {
             box-sizing: border-box;
-            transition: 0.3s;
-            background-color: #fafafa;
+            font-family: 'Poppins', sans-serif;
         }
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--roxo-principal);
-            outline: none;
-            background-color: #fff;
-        }
-        .checkbox-group {
+
+        body {
+            background-color: var(--cinza-fundo);
+            margin: 0;
+            padding: 0;
+            color: var(--texto);
             display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            background: #fafafa;
-            padding: 10px;
-            border-radius: 8px;
+            justify-content: center;
         }
-        .checkbox-group input {
-            width: auto;
-            transform: scale(1.2);
-            cursor: pointer;
-        }
-        .checkbox-group label {
-            margin-bottom: 0;
-            cursor: pointer;
-        }
-        .bloco-pagamento {
-            background: linear-gradient(135deg, #fff0f3 0%, #f8f7ff 100%);
-            border: 2px dashed var(--rosa-principal);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 25px;
-        }
-        .bloco-pagamento h3 {
-            margin-top: 0;
-            color: var(--rosa-principal);
-        }
-        .chave-pix {
-            background: white;
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            display: inline-block;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            margin: 5px 0;
-        }
-        .btn-enviar {
-            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-            color: white;
-            border: none;
-            padding: 16px;
+
+        .container {
             width: 100%;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 25px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: 0.3s;
+            max-width: 480px; /* Tamanho perfeito para celular */
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            padding-bottom: 40px;
         }
-        .btn-enviar:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+
+        /* Topo com o Banner Rosa */
+        .header-banner {
+            background-color: var(--rosa-banner);
+            height: 140px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 70px;
+        }
+
+        /* Foto de Perfil / Logo Redonda */
+        .logo-perfil {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -60px;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .logo-perfil span {
+            color: var(--rosa-texto);
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        /* Texto de Boas-Vindas */
+        .boas-vindas {
+            text-align: center;
+            padding: 0 30px;
+            font-size: 14px;
+            color: #4a4a4a;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        /* Botão de Manutenção de Destaque */
+        .btn-manutencao {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 35px auto;
+            background-color: #ffdae2;
+            color: var(--rosa-texto);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-manutencao:hover {
+            background-color: var(--rosa-banner);
+        }
+
+        .titulo-secao {
+            text-align: center;
+            color: var(--rosa-texto);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Grade de Cílios Lado a Lado (2 Colunas) */
+        .grid-modelos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .card-cilios {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #eee;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-cilios img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            background-color: #f5f5f5; /* Fundo cinza enquanto não põe foto */
+        }
+
+        .card-info {
+            padding: 12px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-info h3 {
+            margin: 0 0 4px 0;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .card-info p {
+            margin: 0 0 10px 0;
+            font-size: 11px;
+            color: #777;
+            line-height: 1.3;
+        }
+
+        .preco-principal {
+            color: var(--rosa-texto);
+            font-weight: 700;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .preco-manut {
+            font-size: 10px;
+            color: #888;
+            margin: 2px 0 0 0;
+        }
+
+        .card-cilios:hover {
+            transform: translateY(-3px);
+            border-color: var(--rosa-banner);
+            box-shadow: 0 6px 15px rgba(255, 177, 193, 0.2);
+        }
+
+        .card-cilios.selecionado {
+            border: 2px solid var(--rosa-texto);
+            background-color: #fffafb;
+        }
+
+        /* Seção do Formulário Condicional */
+        .formulario-bloco {
+            padding: 20px;
+            display: none;
+        }
+
+        .regras-studio {
+            background: #fff5f6;
+            border: 1px solid #ffe3e7;
+            border-left: 4px solid var(--rosa-texto);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .regras-studio h4 { margin: 0 0 8px 0; color: #c0392b; font-size: 14px; }
+        .regras-studio ul { margin: 0; padding-left: 18px; font-size: 12px; color: #555; line-height: 1.5; }
+
+        .campo { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 500; color: #444; }
+        input, select, textarea {
+            width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 10px;
+            background: #fafafa; font-size: 13px; box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus { border-color: var(--rosa-texto); outline: none; background: #fff; }
+
+        .checkbox-group {
+            display: flex; align-items: center; gap: 10px; background: #fdfafb;
+            padding: 10px; border-radius: 10px; border: 1px solid #f0f0f0; margin-bottom: 10px;
+        }
+        .checkbox-group input { width: 16px; height: 16px; margin: 0; accent-color: var(--rosa-texto); }
+        .checkbox-group label { margin: 0; font-size: 12.5px; }
+
+        .bloco-pagamento {
+            background: #fdf8f9; border: 1px dashed var(--rosa-banner);
+            padding: 18px; border-radius: 14px; text-align: center; margin-top: 25px;
+        }
+        .bloco-pagamento h4 { margin: 0 0 5px 0; color: var(--rosa-texto); font-size: 14px; }
+        .bloco-pagamento p { font-size: 12px; color: #666; margin: 4px 0; }
+        .chave-pix {
+            background: white; padding: 6px 12px; border-radius: 8px; border: 1px solid #e8e8e8;
+            display: inline-block; font-weight: 600; font-size: 12px; margin: 8px 0;
+        }
+
+        .btn-finalizar {
+            background: #25d366; color: white; border: none; padding: 14px;
+            width: 100%; border-radius: 10px; font-size: 14px; font-weight: 600;
+            cursor: pointer; margin-top: 20px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Estúdio Lash Designer</h1>
-    <p class="subtitulo">✨ Realçando o seu olhar ✨</p>
-
-    <!-- Seleção de Serviços -->
-    <div id="servicos">
-        <div class="card-servico" onclick="selecionarServico(this, 'Fio a Fio', 'R$ 100,00')">
-            <div>
-                <h3>Fio a Fio Clássico</h3>
-                <p>R$ 100,00</p>
-            </div>
-            <span>➡️</span>
-        </div>
-        <div class="card-servico" onclick="selecionarServico(this, 'Volume Brasileiro', 'R$ 130,00')">
-            <div>
-                <h3>Volume Brasileiro</h3>
-                <p>R$ 130,00</p>
-            </div>
-            <span>➡️</span>
-        </div>
-        <div class="card-servico" onclick="selecionarServico(this, 'Manutenção Fio a Fio', 'R$ 60,00')">
-            <div>
-                <h3>Manutenção Fio a Fio</h3>
-                <p>R$ 60,00</p>
-            </div>
-            <span>➡️</span>
-        </div>
-        <div class="card-servico" onclick="selecionarServico(this, 'Manutenção Volume Brasileiro', 'R$ 80,00')">
-            <div>
-                <h3>Manutenção Volume Brasileiro</h3>
-                <p>R$ 80,00</p>
-            </div>
-            <span>➡️</span>
+    <!-- Banner superior -->
+    <div class="header-banner">
+        <div class="logo-perfil">
+            <span>IVNY<br>LASH</span>
         </div>
     </div>
 
-    <!-- Seção Oculta que aparece após selecionar o serviço -->
-    <div id="formulario-agendamento" style="display: none;">
+    <!-- Boas-vindas -->
+    <p class="boas-vindas">
+        Oi Diva, que bom te ver por aqui. Vamos escolher um modelo pra você arrasar?
+    </p>
+
+    <!-- Botão de Manutenção Rápido -->
+    <button class="btn-manutencao" onclick="rolarParaModelos()">Agendar Manutenção</button>
+
+    <h2 class="titulo-secao">Modelos de cílios</h2>
+
+    <!-- Grade com 2 Colunas (Fotos fictícias que você pode trocar depois) -->
+    <div class="grid-modelos" id="lista-modelos">
         
-        <!-- Regras do Studio -->
-        <div class="regras-studio" id="regras">
-            <h3>⚠️ Regras do Estúdio</h3>
+        <!-- Modelo 1 -->
+        <div class="card-cilios" onclick="selecionarModelo(this, 'Fio a Fio Clássico', 'R$ 95,00')">
+            <img src="https://unsplash.com" alt="Fio a Fio">
+            <div class="card-info">
+                <div>
+                    <h3>Fio a Fio Clássico</h3>
+                    <p>Naturalidade e efeito rímel, sem volume exagerado.</p>
+                </div>
+                <div>
+                    <span class="preco-principal">R$ 95,00</span>
+                    <p class="preco-manut">Manut: R$ 75,00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modelo 2 -->
+        <div class="card-cilios" onclick="selecionarModelo(this, 'Volume Brasileiro', 'R$ 115,00')">
+            <img src="https://unsplash.com" alt="Volume Brasileiro">
+            <div class="card-info">
+                <div>
+                    <h3>Volume Brasileiro</h3>
+                    <p>Efeito marcante, preto e volumoso. Visual intermediário.</p>
+                </div>
+                <div>
+                    <span class="preco-principal">R$ 115,00</span>
+                    <p class="preco-manut">Manut: R$ 85,00</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Formulário que aparece ao clicar -->
+    <div class="formulario-bloco" id="formulario-agendamento">
+        
+        <div class="regras-studio">
+            <h4>⚠️ Regras do Estúdio</h4>
             <ul>
-                <li>Chegar com tolerância máxima de 10 minutos de atraso.</li>
-                <li>Por favor, venha sem maquiagem na região dos olhos.</li>
-                <li>O valor do sinal não é reembolsável em caso de falta sem aviso prévio de 24h.</li>
+                <li>Tolerância máxima de 10 minutos de atraso.</li>
+                <li>Venha de olhos limpos e sem maquiagem.</li>
+                <li>O valor do sinal assegura sua vaga e não é reembolsável.</li>
             </ul>
         </div>
 
-        <h2>Dados do Agendamento</h2>
-        <form id="formLash" onsubmit="enviarWhatsApp(event)">
-            
+        <h3 style="color: var(--rosa-texto); font-size: 16px; margin-bottom: 15px;">Preencha seus dados:</h3>
+        
+        <form onsubmit="enviarDados(event)">
             <input type="hidden" id="servico_escolhido">
             <input type="hidden" id="valor_escolhido">
 
-            <div class="campo">
-                <label for="nome">Seu Nome Completo:</label>
-                <input type="text" id="nome" required placeholder="Digite seu nome">
-            </div>
-
-            <div class="campo">
-                <label for="whatsapp">Seu WhatsApp:</label>
-                <input type="tel" id="whatsapp" required placeholder="(00) 00000-0000">
-            </div>
-
-            <div class="campo">
-                <label for="data">Escolha o Dia:</label>
-                <input type="date" id="data" required>
-            </div>
-
-            <div class="campo">
-                <label for="horario">Escolha o Horário:</label>
-                <select id="horario" required>
-                    <option value="">Selecione um horário...</option>
-                    <option value="09:00">09:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="16:00">16:00</option>
-                </select>
-            </div>
-
-            <h2>Ficha de Anamnese</h2>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="lente">
-                <label for="lente">Usa lentes de contato?</label>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="alergia_cosmetico">
-                <label for="alergia_cosmetico">Tem alergia a cosméticos?</label>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="alergia_esmalte">
-                <label for="alergia_esmalte">Tem alergia a esmalte?</label>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="alergia_cola">
-                <label for="alergia_cola">Tem alergia a cola / cianoacrilato?</label>
-            </div>
-
-            <div class="campo">
-                <label for="observacoes">Observações importantes:</label>
-                <textarea id="observacoes" rows="3" placeholder="Ex: Alguma sensibilidade, cirurgia recente, gestante..."></textarea>
-            </div>
-
-            <!-- Bloco de Sinal e Pix -->
-            <div class="bloco-pagamento">
-                <h3>Reserva de Vaga (Sinal)</h3>
-                <p>Para confirmar seu horário, realize o pagamento do sinal de <strong>R$ 30,00</strong>.</p>
-                <p><strong>Chave PIX:</strong></p>
-                <div class="chave-pix">DIGITE_AQUI_A_CHAVE_PIX</div>
-                <p><small style="color: #777;">O restante do valor do serviço será pago no dia do atendimento.</small></p>
-            </div>
-
-            <button type="submit" class="btn-enviar">Finalizar e Enviar Comprovante por WhatsApp</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    // Seu WhatsApp já configurado corretamente!
