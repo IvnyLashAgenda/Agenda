@@ -111,10 +111,10 @@
             margin-bottom: 20px;
         }
 
-        /* Grade de Cílios Lado a Lado (2 Colunas) Estável */
+        /* FORÇA OS CARD A FICAREM LADO A LADO DE DOIS EM DOIS */
         .lista-servicos {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             padding: 0 15px;
             width: 100%;
@@ -266,7 +266,7 @@
 
     <h2 class="titulo-secao">Modelos de cílios</h2>
 
-    <!-- Grade de 2 colunas travada -->
+    <!-- LISTA LADO A LADO ATIVADA -->
     <div class="lista-servicos" id="lista-modelos">
         
         <div class="card-cilios" onclick="selecionarModelo(this, 'Fio a Fio Clássico', 'R$ 95,00')">
@@ -301,4 +301,3 @@
 
     <!-- Formulário Condicional -->
     <div class="formulario-bloco" id="formulario-agendamento">
-        <div class="regras-studio">
